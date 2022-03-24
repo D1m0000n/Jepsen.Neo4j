@@ -1,0 +1,58 @@
+2022-03-23 01:31:53,317{GMT}	INFO	[jepsen test runner] jepsen.core: Command line:
+lein run test --node 127.0.0.1 --password Dem0nnet33dem0nN
+2022-03-23 01:31:53,353{GMT}	INFO	[jepsen test runner] jepsen.core: Running test:
+{:remote #jepsen.control.SSHRemote{:session nil}
+ :concurrency 1
+ :db
+ #object[jepsen.db$reify__3444 "0x6585df70" "jepsen.db$reify__3444@6585df70"]
+ :leave-db-running? false
+ :name "noop"
+ :logging-json? false
+ :start-time
+ #object[org.joda.time.DateTime "0x27746c5e" "2022-03-23T01:31:53.000+03:00"]
+ :net
+ #object[jepsen.net$reify__9085 "0x543ac221" "jepsen.net$reify__9085@543ac221"]
+ :client
+ #object[jepsen.client$reify__8924
+         "0x2270f58d"
+         "jepsen.client$reify__8924@2270f58d"]
+ :barrier
+ #object[java.util.concurrent.CyclicBarrier
+         "0x50e1f3fc"
+         "java.util.concurrent.CyclicBarrier@50e1f3fc"]
+ :pure-generators true
+ :ssh
+ {:dummy? false,
+  :username "root",
+  :password "Dem0nnet33dem0nN",
+  :strict-host-key-checking false,
+  :private-key-path nil}
+ :checker
+ #object[jepsen.checker$unbridled_optimism$reify__8609
+         "0x54737322"
+         "jepsen.checker$unbridled_optimism$reify__8609@54737322"]
+ :argv ("test" "--node" "127.0.0.1" "--password" "Dem0nnet33dem0nN")
+ :nemesis
+ #object[jepsen.nemesis$reify__9186
+         "0x56da8847"
+         "jepsen.nemesis$reify__9186@56da8847"]
+ :active-histories
+ #object[clojure.lang.Atom "0x61bd0845" {:status :ready, :val #{}}]
+ :nodes ["127.0.0.1"]
+ :test-count 1
+ :generator nil
+ :os
+ #object[jepsen.os$reify__2489 "0x66b90ab3" "jepsen.os$reify__2489@66b90ab3"]
+ :time-limit 60}
+
+2022-03-23 01:31:53,705{GMT}	INFO	[jepsen test runner] jepsen.db: Tearing down DB
+2022-03-23 01:31:53,707{GMT}	INFO	[jepsen test runner] jepsen.db: Setting up DB
+2022-03-23 01:31:53,709{GMT}	INFO	[jepsen test runner] jepsen.core: Relative time begins now
+2022-03-23 01:31:53,741{GMT}	INFO	[jepsen test runner] jepsen.core: Run complete, writing
+2022-03-23 01:31:53,760{GMT}	INFO	[jepsen test runner] jepsen.core: Analyzing...
+2022-03-23 01:31:53,761{GMT}	INFO	[jepsen test runner] jepsen.core: Analysis complete
+2022-03-23 01:31:53,764{GMT}	INFO	[jepsen results] jepsen.store: Wrote /home/d1m0000n/diploma_neo4j/jepsen.neo4j/store/noop/20220323T013153.000+0300/results.edn
+2022-03-23 01:31:53,776{GMT}	INFO	[jepsen test runner] jepsen.core: {:valid? true}
+
+
+Everything looks good! ヽ(‘ー`)ノ

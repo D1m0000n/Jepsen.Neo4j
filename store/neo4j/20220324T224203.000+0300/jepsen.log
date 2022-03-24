@@ -1,0 +1,107 @@
+2022-03-24 22:42:03,303{GMT}	INFO	[jepsen test runner] jepsen.core: Command line:
+lein run test --node 127.0.0.1 --password Dem0nnet33dem0nN
+2022-03-24 22:42:03,365{GMT}	INFO	[jepsen test runner] jepsen.core: Running test:
+{:remote #jepsen.control.SSHRemote{:session nil}
+ :concurrency 1
+ :db
+ #object[jepsen.neo4j$db$reify__5096
+         "0x1aa7d66e"
+         "jepsen.neo4j$db$reify__5096@1aa7d66e"]
+ :leave-db-running? false
+ :name "neo4j"
+ :logging-json? false
+ :start-time
+ #object[org.joda.time.DateTime "0x7e93e396" "2022-03-24T22:42:03.000+03:00"]
+ :net
+ #object[jepsen.net$reify__9085 "0xf1e8753" "jepsen.net$reify__9085@f1e8753"]
+ :client #jepsen.neo4j.Client{:conn nil}
+ :barrier
+ #object[java.util.concurrent.CyclicBarrier
+         "0x1676e501"
+         "java.util.concurrent.CyclicBarrier@1676e501"]
+ :pure-generators true
+ :ssh
+ {:dummy? false,
+  :username "root",
+  :password "Dem0nnet33dem0nN",
+  :strict-host-key-checking false,
+  :private-key-path nil}
+ :checker
+ #object[jepsen.checker$unbridled_optimism$reify__8609
+         "0x1ed763aa"
+         "jepsen.checker$unbridled_optimism$reify__8609@1ed763aa"]
+ :argv ("test" "--node" "127.0.0.1" "--password" "Dem0nnet33dem0nN")
+ :nemesis
+ #object[jepsen.nemesis$reify__9186
+         "0x7f39bcb5"
+         "jepsen.nemesis$reify__9186@7f39bcb5"]
+ :active-histories
+ #object[clojure.lang.Atom "0x32180efb" {:status :ready, :val #{}}]
+ :nodes ["127.0.0.1"]
+ :test-count 1
+ :generator
+ (jepsen.generator.TimeLimit
+  {:limit 5000000000,
+   :cutoff nil,
+   :gen (jepsen.generator.Any
+         {:gens [(jepsen.generator.OnThreads {:f #{:nemesis}, :gen nil})
+                 (jepsen.generator.OnThreads
+                  {:f #object[clojure.core$complement$fn__5654
+                              "0x6f999cf4"
+                              "clojure.core$complement$fn__5654@6f999cf4"],
+                   :gen (jepsen.generator.Stagger
+                         {:dt 2000000000,
+                          :next-time nil,
+                          :gen (jepsen.generator.Mix
+                                {:i 0,
+                                 :gens [#object[jepsen.neo4j$r
+                                                "0x7892635c"
+                                                "jepsen.neo4j$r@7892635c"]
+                                        #object[jepsen.neo4j$w
+                                                "0x79c9a128"
+                                                "jepsen.neo4j$w@79c9a128"]]})})})]})})
+ :os
+ #object[jepsen.os.ubuntu.Ubuntu
+         "0x729a98e9"
+         "jepsen.os.ubuntu.Ubuntu@729a98e9"]
+ :time-limit 60}
+
+2022-03-24 22:42:03,718{GMT}	INFO	[jepsen node 127.0.0.1] jepsen.os.ubuntu: 127.0.0.1 setting up ubuntu
+2022-03-24 22:42:04,790{GMT}	INFO	[jepsen test runner] jepsen.db: Tearing down DB
+2022-03-24 22:42:04,792{GMT}	INFO	[jepsen node 127.0.0.1] jepsen.neo4j: 127.0.0.1 tearing down neo4j
+2022-03-24 22:42:04,793{GMT}	INFO	[jepsen node 127.0.0.1] jepsen.control.util: Stopping /opt/neo4j/bin/neo4j
+2022-03-24 22:42:08,107{GMT}	INFO	[jepsen test runner] jepsen.db: Setting up DB
+2022-03-24 22:42:08,108{GMT}	INFO	[jepsen node 127.0.0.1] jepsen.neo4j: 127.0.0.1 installing neo4j 3.5.4
+2022-03-24 22:42:15,543{GMT}	INFO	[jepsen test runner] jepsen.core: Relative time begins now
+2022-03-24 22:42:15,757{GMT}	INFO	[jepsen worker 0] jepsen.util: 0	:invoke	:read	nil
+2022-03-24 22:42:16,178{GMT}	INFO	[jepsen worker 0] jepsen.util: 0	:ok	:read	nil
+2022-03-24 22:42:17,157{GMT}	INFO	[jepsen worker 0] jepsen.util: 0	:invoke	:write	"n4"
+2022-03-24 22:42:17,304{GMT}	INFO	[jepsen worker 0] jepsen.util: 0	:ok	:write	"n4"
+2022-03-24 22:42:17,745{GMT}	INFO	[jepsen worker 0] jepsen.util: 0	:invoke	:write	"n0"
+2022-03-24 22:42:17,786{GMT}	INFO	[jepsen worker 0] jepsen.util: 0	:ok	:write	"n0"
+2022-03-24 22:42:18,201{GMT}	INFO	[jepsen worker 0] jepsen.util: 0	:invoke	:write	"n4"
+2022-03-24 22:42:18,219{GMT}	INFO	[jepsen worker 0] jepsen.util: 0	:ok	:write	"n4"
+2022-03-24 22:42:18,972{GMT}	INFO	[jepsen worker 0] jepsen.util: 0	:invoke	:read	nil
+2022-03-24 22:42:18,991{GMT}	INFO	[jepsen worker 0] jepsen.util: 0	:ok	:read	{:labels [], :id 0, :ref-id "n2", :props {}}
+2022-03-24 22:42:19,067{GMT}	INFO	[jepsen worker 0] jepsen.util: 0	:invoke	:read	nil
+2022-03-24 22:42:19,086{GMT}	INFO	[jepsen worker 0] jepsen.util: 0	:ok	:read	{:labels [], :id 0, :ref-id "n2", :props {}}
+2022-03-24 22:42:19,682{GMT}	INFO	[jepsen worker 0] jepsen.util: 0	:invoke	:read	nil
+2022-03-24 22:42:19,693{GMT}	INFO	[jepsen worker 0] jepsen.util: 0	:ok	:read	{:labels [], :id 0, :ref-id "n2", :props {}}
+2022-03-24 22:42:20,365{GMT}	INFO	[jepsen worker 0] jepsen.util: 0	:invoke	:write	"n3"
+2022-03-24 22:42:20,400{GMT}	INFO	[jepsen worker 0] jepsen.util: 0	:ok	:write	"n3"
+2022-03-24 22:42:20,403{GMT}	INFO	[jepsen test runner] jepsen.core: Run complete, writing
+2022-03-24 22:42:20,428{GMT}	INFO	[jepsen test runner] jepsen.core: Analyzing...
+2022-03-24 22:42:20,429{GMT}	INFO	[jepsen test runner] jepsen.core: Analysis complete
+2022-03-24 22:42:20,432{GMT}	INFO	[jepsen results] jepsen.store: Wrote /home/d1m0000n/diploma_neo4j/jepsen.neo4j/store/neo4j/20220324T224203.000+0300/results.edn
+2022-03-24 22:42:20,436{GMT}	INFO	[jepsen test runner] jepsen.core: Snarfing log files
+2022-03-24 22:42:20,540{GMT}	INFO	[jepsen node 127.0.0.1] jepsen.core: downloading /opt/neo4j/logs/neo4j.log to neo4j.log
+2022-03-24 22:42:20,660{GMT}	INFO	[jepsen node 127.0.0.1] jepsen.core: downloading /opt/neo4j/logs/debug.log to debug.log
+2022-03-24 22:42:20,695{GMT}	INFO	[jepsen test runner] jepsen.core: Snarfing log files
+2022-03-24 22:42:20,798{GMT}	INFO	[jepsen node 127.0.0.1] jepsen.core: downloading /opt/neo4j/logs/neo4j.log to neo4j.log
+2022-03-24 22:42:20,921{GMT}	INFO	[jepsen node 127.0.0.1] jepsen.core: downloading /opt/neo4j/logs/debug.log to debug.log
+2022-03-24 22:42:20,941{GMT}	INFO	[jepsen node 127.0.0.1] jepsen.neo4j: 127.0.0.1 tearing down neo4j
+2022-03-24 22:42:20,941{GMT}	INFO	[jepsen node 127.0.0.1] jepsen.control.util: Stopping /opt/neo4j/bin/neo4j
+2022-03-24 22:42:25,265{GMT}	INFO	[jepsen test runner] jepsen.core: {:valid? true}
+
+
+Everything looks good! ヽ(‘ー`)ノ

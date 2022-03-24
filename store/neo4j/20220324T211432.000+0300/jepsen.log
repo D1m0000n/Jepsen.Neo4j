@@ -1,0 +1,126 @@
+2022-03-24 21:14:32,201{GMT}	INFO	[jepsen test runner] jepsen.core: Command line:
+lein run test --node 127.0.0.1 --password Dem0nnet33dem0nN
+2022-03-24 21:14:32,259{GMT}	INFO	[jepsen test runner] jepsen.core: Running test:
+{:remote #jepsen.control.SSHRemote{:session nil}
+ :concurrency 1
+ :db
+ #object[jepsen.neo4j$db$reify__5096
+         "0x72769bf5"
+         "jepsen.neo4j$db$reify__5096@72769bf5"]
+ :leave-db-running? false
+ :name "neo4j"
+ :logging-json? false
+ :start-time
+ #object[org.joda.time.DateTime "0x55448710" "2022-03-24T21:14:32.000+03:00"]
+ :net
+ #object[jepsen.net$reify__9085 "0x39240aa3" "jepsen.net$reify__9085@39240aa3"]
+ :client #jepsen.neo4j.Client{:conn nil}
+ :barrier
+ #object[java.util.concurrent.CyclicBarrier
+         "0x13c36d48"
+         "java.util.concurrent.CyclicBarrier@13c36d48"]
+ :pure-generators true
+ :ssh
+ {:dummy? false,
+  :username "root",
+  :password "Dem0nnet33dem0nN",
+  :strict-host-key-checking false,
+  :private-key-path nil}
+ :checker
+ #object[jepsen.checker$unbridled_optimism$reify__8609
+         "0x7e93e396"
+         "jepsen.checker$unbridled_optimism$reify__8609@7e93e396"]
+ :argv ("test" "--node" "127.0.0.1" "--password" "Dem0nnet33dem0nN")
+ :nemesis
+ #object[jepsen.nemesis$reify__9186
+         "0xf1e8753"
+         "jepsen.nemesis$reify__9186@f1e8753"]
+ :active-histories
+ #object[clojure.lang.Atom "0x4e6881e" {:status :ready, :val #{}}]
+ :nodes ["127.0.0.1"]
+ :test-count 1
+ :generator
+ (jepsen.generator.TimeLimit
+  {:limit 3000000000,
+   :cutoff nil,
+   :gen (jepsen.generator.Any
+         {:gens [(jepsen.generator.OnThreads {:f #{:nemesis}, :gen nil})
+                 (jepsen.generator.OnThreads
+                  {:f #object[clojure.core$complement$fn__5654
+                              "0x7d2d5625"
+                              "clojure.core$complement$fn__5654@7d2d5625"],
+                   :gen (jepsen.generator.Stagger
+                         {:dt 2000000000,
+                          :next-time nil,
+                          :gen #object[jepsen.neo4j$r
+                                       "0x29a51ff1"
+                                       "jepsen.neo4j$r@29a51ff1"]})})]})})
+ :os
+ #object[jepsen.os.ubuntu.Ubuntu
+         "0x6dacde96"
+         "jepsen.os.ubuntu.Ubuntu@6dacde96"]
+ :time-limit 60}
+
+2022-03-24 21:14:32,586{GMT}	INFO	[jepsen node 127.0.0.1] jepsen.os.ubuntu: 127.0.0.1 setting up ubuntu
+2022-03-24 21:14:33,655{GMT}	INFO	[jepsen test runner] jepsen.db: Tearing down DB
+2022-03-24 21:14:33,658{GMT}	INFO	[jepsen node 127.0.0.1] jepsen.neo4j: 127.0.0.1 tearing down neo4j
+2022-03-24 21:14:33,658{GMT}	INFO	[jepsen node 127.0.0.1] jepsen.control.util: Stopping /opt/neo4j/bin/neo4j
+2022-03-24 21:14:36,972{GMT}	INFO	[jepsen test runner] jepsen.db: Setting up DB
+2022-03-24 21:14:36,974{GMT}	INFO	[jepsen node 127.0.0.1] jepsen.neo4j: 127.0.0.1 installing neo4j 3.5.4
+2022-03-24 21:14:44,408{GMT}	INFO	[jepsen test runner] jepsen.core: Snarfing log files
+2022-03-24 21:14:44,512{GMT}	INFO	[jepsen node 127.0.0.1] jepsen.core: downloading /opt/neo4j/logs/neo4j.log to neo4j.log
+2022-03-24 21:14:44,627{GMT}	INFO	[jepsen node 127.0.0.1] jepsen.core: downloading /opt/neo4j/logs/debug.log to debug.log
+2022-03-24 21:14:44,638{GMT}	INFO	[jepsen node 127.0.0.1] jepsen.neo4j: 127.0.0.1 tearing down neo4j
+2022-03-24 21:14:44,638{GMT}	INFO	[jepsen node 127.0.0.1] jepsen.control.util: Stopping /opt/neo4j/bin/neo4j
+2022-03-24 21:14:49,961{GMT}	WARN	[main] jepsen.core: Test crashed!
+clojure.lang.ExceptionInfo: Command exited with non-zero status 1 on node 127.0.0.1:
+sudo -S -u root bash -c "cd /; /home/d1m0000n/helpers_neo4j/auth.sh"
+
+STDIN:
+null
+
+STDOUT:
+
+
+STDERR:
+cp: cannot stat './neo4j.conf': No such file or directory
+
+	at slingshot.support$stack_trace.invoke(support.clj:201)
+	at jepsen.control$throw_on_nonzero_exit.invokeStatic(control.clj:150)
+	at jepsen.control$throw_on_nonzero_exit.invoke(control.clj:145)
+	at jepsen.control$exec_STAR_.invokeStatic(control.clj:194)
+	at jepsen.control$exec_STAR_.doInvoke(control.clj:191)
+	at clojure.lang.RestFn.applyTo(RestFn.java:137)
+	at clojure.core$apply.invokeStatic(core.clj:665)
+	at clojure.core$apply.invoke(core.clj:660)
+	at jepsen.control$exec.invokeStatic(control.clj:210)
+	at jepsen.control$exec.doInvoke(control.clj:204)
+	at clojure.lang.RestFn.invoke(RestFn.java:408)
+	at jepsen.neo4j$db$reify__5096.setup_BANG_(neo4j.clj:50)
+	at jepsen.db$fn__3288$G__3267__3292.invoke(db.clj:11)
+	at jepsen.db$fn__3288$G__3266__3297.invoke(db.clj:11)
+	at clojure.core$partial$fn__5824.invoke(core.clj:2625)
+	at jepsen.control$on_nodes$fn__3161.invoke(control.clj:430)
+	at clojure.lang.AFn.applyToHelper(AFn.java:154)
+	at clojure.lang.AFn.applyTo(AFn.java:144)
+	at clojure.core$apply.invokeStatic(core.clj:665)
+	at clojure.core$with_bindings_STAR_.invokeStatic(core.clj:1973)
+	at clojure.core$with_bindings_STAR_.doInvoke(core.clj:1973)
+	at clojure.lang.RestFn.applyTo(RestFn.java:142)
+	at clojure.core$apply.invokeStatic(core.clj:669)
+	at clojure.core$bound_fn_STAR_$fn__5734.doInvoke(core.clj:2003)
+	at clojure.lang.RestFn.invoke(RestFn.java:408)
+	at dom_top.core$real_pmap_helper$build_thread__213$fn__214.invoke(core.clj:146)
+	at clojure.lang.AFn.applyToHelper(AFn.java:152)
+	at clojure.lang.AFn.applyTo(AFn.java:144)
+	at clojure.core$apply.invokeStatic(core.clj:665)
+	at clojure.core$with_bindings_STAR_.invokeStatic(core.clj:1973)
+	at clojure.core$with_bindings_STAR_.doInvoke(core.clj:1973)
+	at clojure.lang.RestFn.invoke(RestFn.java:425)
+	at clojure.lang.AFn.applyToHelper(AFn.java:156)
+	at clojure.lang.RestFn.applyTo(RestFn.java:132)
+	at clojure.core$apply.invokeStatic(core.clj:669)
+	at clojure.core$bound_fn_STAR_$fn__5734.doInvoke(core.clj:2003)
+	at clojure.lang.RestFn.invoke(RestFn.java:397)
+	at clojure.lang.AFn.run(AFn.java:22)
+	at java.base/java.lang.Thread.run(Thread.java:829)

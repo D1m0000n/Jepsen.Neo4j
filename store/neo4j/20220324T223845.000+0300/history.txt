@@ -1,0 +1,6 @@
+0	:invoke	:read	nil
+0	:info	:read	nil	indeterminate: Invalid input '2': expected whitespace, a variable, node labels, a property map, ')' or org$neo4j$cypher$internal$v3_5$parser$Patterns$$PatternElement (line 1, column 8 (offset: 7))
+"MATCH (2) RETURN 2 LIMIT 1"
+        ^
+1	:invoke	:write	"3"
+1	:info	:write	"3"	indeterminate: Wrong number of args (3) passed to: neo4clj.client/create-node!

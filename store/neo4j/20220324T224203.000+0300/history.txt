@@ -1,0 +1,16 @@
+0	:invoke	:read	nil
+0	:ok	:read	nil
+0	:invoke	:write	"n4"
+0	:ok	:write	"n4"
+0	:invoke	:write	"n0"
+0	:ok	:write	"n0"
+0	:invoke	:write	"n4"
+0	:ok	:write	"n4"
+0	:invoke	:read	nil
+0	:ok	:read	{:labels [], :id 0, :ref-id "n2", :props {}}
+0	:invoke	:read	nil
+0	:ok	:read	{:labels [], :id 0, :ref-id "n2", :props {}}
+0	:invoke	:read	nil
+0	:ok	:read	{:labels [], :id 0, :ref-id "n2", :props {}}
+0	:invoke	:write	"n3"
+0	:ok	:write	"n3"

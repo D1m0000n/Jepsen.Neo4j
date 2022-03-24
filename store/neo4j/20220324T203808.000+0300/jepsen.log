@@ -1,0 +1,142 @@
+2022-03-24 20:38:08,441{GMT}	INFO	[jepsen test runner] jepsen.core: Command line:
+lein run test --node 127.0.0.1 --password Dem0nnet33dem0nN
+2022-03-24 20:38:08,491{GMT}	INFO	[jepsen test runner] jepsen.core: Running test:
+{:remote #jepsen.control.SSHRemote{:session nil}
+ :concurrency 1
+ :db
+ #object[jepsen.neo4j$db$reify__5099
+         "0x64abb917"
+         "jepsen.neo4j$db$reify__5099@64abb917"]
+ :leave-db-running? false
+ :name "neo4j"
+ :logging-json? false
+ :start-time
+ #object[org.joda.time.DateTime "0x5852605c" "2022-03-24T20:38:08.000+03:00"]
+ :net
+ #object[jepsen.net$reify__9085 "0x2acfd27b" "jepsen.net$reify__9085@2acfd27b"]
+ :client #jepsen.neo4j.Client{:conn nil}
+ :barrier
+ #object[java.util.concurrent.CyclicBarrier
+         "0x5e8359da"
+         "java.util.concurrent.CyclicBarrier@5e8359da"]
+ :pure-generators true
+ :ssh
+ {:dummy? false,
+  :username "root",
+  :password "Dem0nnet33dem0nN",
+  :strict-host-key-checking false,
+  :private-key-path nil}
+ :checker
+ #object[jepsen.checker$unbridled_optimism$reify__8609
+         "0x36b6802f"
+         "jepsen.checker$unbridled_optimism$reify__8609@36b6802f"]
+ :argv ("test" "--node" "127.0.0.1" "--password" "Dem0nnet33dem0nN")
+ :nemesis
+ #object[jepsen.nemesis$reify__9186
+         "0x7d2d5625"
+         "jepsen.nemesis$reify__9186@7d2d5625"]
+ :active-histories
+ #object[clojure.lang.Atom "0x7892635c" {:status :ready, :val #{}}]
+ :nodes ["127.0.0.1"]
+ :test-count 1
+ :generator
+ (jepsen.generator.TimeLimit
+  {:limit 3000000000,
+   :cutoff nil,
+   :gen (jepsen.generator.Any
+         {:gens [(jepsen.generator.OnThreads {:f #{:nemesis}, :gen nil})
+                 (jepsen.generator.OnThreads
+                  {:f #object[clojure.core$complement$fn__5654
+                              "0x21523e1b"
+                              "clojure.core$complement$fn__5654@21523e1b"],
+                   :gen (jepsen.generator.Stagger
+                         {:dt 2000000000,
+                          :next-time nil,
+                          :gen #object[jepsen.neo4j$r
+                                       "0x6461c673"
+                                       "jepsen.neo4j$r@6461c673"]})})]})})
+ :os
+ #object[jepsen.os.ubuntu.Ubuntu
+         "0x1e11d73c"
+         "jepsen.os.ubuntu.Ubuntu@1e11d73c"]
+ :time-limit 60}
+
+2022-03-24 20:38:08,857{GMT}	INFO	[jepsen node 127.0.0.1] jepsen.os.ubuntu: 127.0.0.1 setting up ubuntu
+2022-03-24 20:38:09,943{GMT}	INFO	[jepsen test runner] jepsen.db: Tearing down DB
+2022-03-24 20:38:09,945{GMT}	INFO	[jepsen node 127.0.0.1] jepsen.neo4j: 127.0.0.1 tearing down neo4j
+2022-03-24 20:38:09,946{GMT}	INFO	[jepsen node 127.0.0.1] jepsen.control.util: Stopping /opt/neo4j/bin/neo4j
+2022-03-24 20:38:20,259{GMT}	INFO	[jepsen test runner] jepsen.db: Setting up DB
+2022-03-24 20:38:20,261{GMT}	INFO	[jepsen node 127.0.0.1] jepsen.neo4j: 127.0.0.1 installing neo4j 3.5.4
+2022-03-24 20:38:33,298{GMT}	INFO	[jepsen test runner] jepsen.core: Snarfing log files
+2022-03-24 20:38:33,405{GMT}	INFO	[jepsen node 127.0.0.1] jepsen.core: downloading /opt/neo4j/logs/neo4j.log to neo4j.log
+2022-03-24 20:38:33,530{GMT}	INFO	[jepsen node 127.0.0.1] jepsen.core: downloading /opt/neo4j/logs/debug.log to debug.log
+2022-03-24 20:38:33,548{GMT}	INFO	[jepsen node 127.0.0.1] jepsen.neo4j: 127.0.0.1 tearing down neo4j
+2022-03-24 20:38:33,548{GMT}	INFO	[jepsen node 127.0.0.1] jepsen.control.util: Stopping /opt/neo4j/bin/neo4j
+2022-03-24 20:38:44,872{GMT}	WARN	[main] jepsen.core: Test crashed!
+clojure.lang.ExceptionInfo: Command exited with non-zero status 1 on node 127.0.0.1:
+sudo -S -u root bash -c "cd /; /opt/neo4j/bin/neo4j-admin set-default-admin"
+
+STDIN:
+null
+
+STDOUT:
+WARNING: Max 1024 open files allowed, minimum of 40000 recommended. See the Neo4j manual.
+WARNING! You are using an unsupported Java runtime. 
+* Please use Oracle(R) Java(TM) 8, OpenJDK(TM) or IBM J9 to run Neo4j.
+* Please see https://neo4j.com/docs/ for Neo4j installation instructions.
+
+
+STDERR:
+not enough arguments
+
+usage: neo4j-admin set-default-admin <username>
+
+environment variables:
+    NEO4J_CONF    Path to directory which contains neo4j.conf.
+    NEO4J_DEBUG   Set to anything to enable debug output.
+    NEO4J_HOME    Neo4j home directory.
+    HEAP_SIZE     Set JVM maximum heap size during command execution.
+                  Takes a number and a unit, for example 512m.
+
+Sets the user to become admin if users but no roles are present, for example
+when upgrading to neo4j 3.1 enterprise.
+
+	at slingshot.support$stack_trace.invoke(support.clj:201)
+	at jepsen.control$throw_on_nonzero_exit.invokeStatic(control.clj:150)
+	at jepsen.control$throw_on_nonzero_exit.invoke(control.clj:145)
+	at jepsen.control$exec_STAR_.invokeStatic(control.clj:194)
+	at jepsen.control$exec_STAR_.doInvoke(control.clj:191)
+	at clojure.lang.RestFn.applyTo(RestFn.java:137)
+	at clojure.core$apply.invokeStatic(core.clj:665)
+	at clojure.core$apply.invoke(core.clj:660)
+	at jepsen.control$exec.invokeStatic(control.clj:210)
+	at jepsen.control$exec.doInvoke(control.clj:204)
+	at clojure.lang.RestFn.invoke(RestFn.java:421)
+	at jepsen.neo4j$db$reify__5099.setup_BANG_(neo4j.clj:64)
+	at jepsen.db$fn__3288$G__3267__3292.invoke(db.clj:11)
+	at jepsen.db$fn__3288$G__3266__3297.invoke(db.clj:11)
+	at clojure.core$partial$fn__5824.invoke(core.clj:2625)
+	at jepsen.control$on_nodes$fn__3161.invoke(control.clj:430)
+	at clojure.lang.AFn.applyToHelper(AFn.java:154)
+	at clojure.lang.AFn.applyTo(AFn.java:144)
+	at clojure.core$apply.invokeStatic(core.clj:665)
+	at clojure.core$with_bindings_STAR_.invokeStatic(core.clj:1973)
+	at clojure.core$with_bindings_STAR_.doInvoke(core.clj:1973)
+	at clojure.lang.RestFn.applyTo(RestFn.java:142)
+	at clojure.core$apply.invokeStatic(core.clj:669)
+	at clojure.core$bound_fn_STAR_$fn__5734.doInvoke(core.clj:2003)
+	at clojure.lang.RestFn.invoke(RestFn.java:408)
+	at dom_top.core$real_pmap_helper$build_thread__213$fn__214.invoke(core.clj:146)
+	at clojure.lang.AFn.applyToHelper(AFn.java:152)
+	at clojure.lang.AFn.applyTo(AFn.java:144)
+	at clojure.core$apply.invokeStatic(core.clj:665)
+	at clojure.core$with_bindings_STAR_.invokeStatic(core.clj:1973)
+	at clojure.core$with_bindings_STAR_.doInvoke(core.clj:1973)
+	at clojure.lang.RestFn.invoke(RestFn.java:425)
+	at clojure.lang.AFn.applyToHelper(AFn.java:156)
+	at clojure.lang.RestFn.applyTo(RestFn.java:132)
+	at clojure.core$apply.invokeStatic(core.clj:669)
+	at clojure.core$bound_fn_STAR_$fn__5734.doInvoke(core.clj:2003)
+	at clojure.lang.RestFn.invoke(RestFn.java:397)
+	at clojure.lang.AFn.run(AFn.java:22)
+	at java.base/java.lang.Thread.run(Thread.java:829)

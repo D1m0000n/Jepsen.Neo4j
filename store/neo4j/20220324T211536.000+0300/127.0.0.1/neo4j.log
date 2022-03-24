@@ -1,0 +1,18 @@
+2022-03-24 18:15:44.992+0000 WARN  You are using an unsupported version of the Java runtime. Please use Oracle(R) Java(TM) Runtime Environment 8, OpenJDK(TM) 8 or IBM J9.
+2022-03-24 18:15:45.002+0000 INFO  ======== Neo4j 3.5.4 ========
+2022-03-24 18:15:45.011+0000 INFO  Starting...
+WARNING: An illegal reflective access operation has occurred
+WARNING: Illegal reflective access by org.eclipse.collections.impl.utility.ArrayListIterate (file:/opt/neo4j/lib/eclipse-collections-9.2.0.jar) to field java.util.ArrayList.elementData
+WARNING: Please consider reporting this to the maintainers of org.eclipse.collections.impl.utility.ArrayListIterate
+WARNING: Use --illegal-access=warn to enable warnings of further illegal reflective access operations
+WARNING: All illegal access operations will be denied in a future release
+2022-03-24 18:15:47.674+0000 INFO  Bolt enabled on 127.0.0.1:7687.
+2022-03-24 18:15:48.950+0000 INFO  Started.
+2022-03-24 18:15:49.493+0000 WARN  Unsupported authentication token, scheme 'none' is only allowed when auth is disabled.
+2022-03-24 18:15:49.560+0000 WARN  Unsupported authentication token, scheme 'none' is only allowed when auth is disabled.
+2022-03-24 18:15:49.940+0000 WARN  Unsupported authentication token, scheme 'none' is only allowed when auth is disabled.
+2022-03-24 18:15:49.989+0000 INFO  Remote interface available at http://localhost:7474/
+2022-03-24 18:15:51.125+0000 WARN  Unsupported authentication token, scheme 'none' is only allowed when auth is disabled.
+2022-03-24 18:15:52.004+0000 WARN  Unsupported authentication token, scheme 'none' is only allowed when auth is disabled.
+2022-03-24 18:15:52.100+0000 WARN  Unsupported authentication token, scheme 'none' is only allowed when auth is disabled.
+2022-03-24 18:15:52.143+0000 WARN  Unsupported authentication token, scheme 'none' is only allowed when auth is disabled.

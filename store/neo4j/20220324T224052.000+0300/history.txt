@@ -1,0 +1,6 @@
+0	:invoke	:write	"n0"
+0	:info	:write	"n0"	indeterminate: Wrong number of args (3) passed to: neo4clj.client/create-node!
+1	:invoke	:write	"n1"
+1	:info	:write	"n1"	indeterminate: Wrong number of args (3) passed to: neo4clj.client/create-node!
+2	:invoke	:read	nil
+2	:ok	:read	nil

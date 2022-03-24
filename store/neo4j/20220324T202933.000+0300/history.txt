@@ -1,0 +1,24 @@
+0	:invoke	:read	nil
+0	:info	:read	nil	indeterminate: Read operations are not allowed for user 'neo4j' with CREDENTIALS_EXPIRED.
+
+The credentials you provided were valid, but must be changed before you can use this instance. If this is the first time you are using Neo4j, this is to ensure you are not using the default credentials in production. If you are not using default credentials, you are getting this message because an administrator requires a password change.
+Changing your password is easy to do via the Neo4j Browser.
+If you are connecting via a shell or programmatically via a driver, just issue a `CALL dbms.changePassword('new password')` statement in the current session, and then restart your driver with the new password configured.
+1	:invoke	:read	nil
+1	:info	:read	nil	indeterminate: Read operations are not allowed for user 'neo4j' with CREDENTIALS_EXPIRED.
+
+The credentials you provided were valid, but must be changed before you can use this instance. If this is the first time you are using Neo4j, this is to ensure you are not using the default credentials in production. If you are not using default credentials, you are getting this message because an administrator requires a password change.
+Changing your password is easy to do via the Neo4j Browser.
+If you are connecting via a shell or programmatically via a driver, just issue a `CALL dbms.changePassword('new password')` statement in the current session, and then restart your driver with the new password configured.
+2	:invoke	:read	nil
+2	:info	:read	nil	indeterminate: Read operations are not allowed for user 'neo4j' with CREDENTIALS_EXPIRED.
+
+The credentials you provided were valid, but must be changed before you can use this instance. If this is the first time you are using Neo4j, this is to ensure you are not using the default credentials in production. If you are not using default credentials, you are getting this message because an administrator requires a password change.
+Changing your password is easy to do via the Neo4j Browser.
+If you are connecting via a shell or programmatically via a driver, just issue a `CALL dbms.changePassword('new password')` statement in the current session, and then restart your driver with the new password configured.
+3	:invoke	:read	nil
+3	:info	:read	nil	indeterminate: Read operations are not allowed for user 'neo4j' with CREDENTIALS_EXPIRED.
+
+The credentials you provided were valid, but must be changed before you can use this instance. If this is the first time you are using Neo4j, this is to ensure you are not using the default credentials in production. If you are not using default credentials, you are getting this message because an administrator requires a password change.
+Changing your password is easy to do via the Neo4j Browser.
+If you are connecting via a shell or programmatically via a driver, just issue a `CALL dbms.changePassword('new password')` statement in the current session, and then restart your driver with the new password configured.

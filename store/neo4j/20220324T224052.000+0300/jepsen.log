@@ -1,0 +1,125 @@
+2022-03-24 22:40:52,193{GMT}	INFO	[jepsen test runner] jepsen.core: Command line:
+lein run test --node 127.0.0.1 --password Dem0nnet33dem0nN
+2022-03-24 22:40:52,252{GMT}	INFO	[jepsen test runner] jepsen.core: Running test:
+{:remote #jepsen.control.SSHRemote{:session nil}
+ :concurrency 1
+ :db
+ #object[jepsen.neo4j$db$reify__5096
+         "0x1aa7d66e"
+         "jepsen.neo4j$db$reify__5096@1aa7d66e"]
+ :leave-db-running? false
+ :name "neo4j"
+ :logging-json? false
+ :start-time
+ #object[org.joda.time.DateTime "0x7e93e396" "2022-03-24T22:40:52.000+03:00"]
+ :net
+ #object[jepsen.net$reify__9085 "0xf1e8753" "jepsen.net$reify__9085@f1e8753"]
+ :client #jepsen.neo4j.Client{:conn nil}
+ :barrier
+ #object[java.util.concurrent.CyclicBarrier
+         "0x1676e501"
+         "java.util.concurrent.CyclicBarrier@1676e501"]
+ :pure-generators true
+ :ssh
+ {:dummy? false,
+  :username "root",
+  :password "Dem0nnet33dem0nN",
+  :strict-host-key-checking false,
+  :private-key-path nil}
+ :checker
+ #object[jepsen.checker$unbridled_optimism$reify__8609
+         "0x1ed763aa"
+         "jepsen.checker$unbridled_optimism$reify__8609@1ed763aa"]
+ :argv ("test" "--node" "127.0.0.1" "--password" "Dem0nnet33dem0nN")
+ :nemesis
+ #object[jepsen.nemesis$reify__9186
+         "0x7f39bcb5"
+         "jepsen.nemesis$reify__9186@7f39bcb5"]
+ :active-histories
+ #object[clojure.lang.Atom "0x32180efb" {:status :ready, :val #{}}]
+ :nodes ["127.0.0.1"]
+ :test-count 1
+ :generator
+ (jepsen.generator.TimeLimit
+  {:limit 2000000000,
+   :cutoff nil,
+   :gen (jepsen.generator.Any
+         {:gens [(jepsen.generator.OnThreads {:f #{:nemesis}, :gen nil})
+                 (jepsen.generator.OnThreads
+                  {:f #object[clojure.core$complement$fn__5654
+                              "0x6f999cf4"
+                              "clojure.core$complement$fn__5654@6f999cf4"],
+                   :gen (jepsen.generator.Stagger
+                         {:dt 2000000000,
+                          :next-time nil,
+                          :gen (jepsen.generator.Mix
+                                {:i 1,
+                                 :gens [#object[jepsen.neo4j$r
+                                                "0x7892635c"
+                                                "jepsen.neo4j$r@7892635c"]
+                                        #object[jepsen.neo4j$w
+                                                "0x79c9a128"
+                                                "jepsen.neo4j$w@79c9a128"]]})})})]})})
+ :os
+ #object[jepsen.os.ubuntu.Ubuntu
+         "0x729a98e9"
+         "jepsen.os.ubuntu.Ubuntu@729a98e9"]
+ :time-limit 60}
+
+2022-03-24 22:40:52,594{GMT}	INFO	[jepsen node 127.0.0.1] jepsen.os.ubuntu: 127.0.0.1 setting up ubuntu
+2022-03-24 22:40:53,662{GMT}	INFO	[jepsen test runner] jepsen.db: Tearing down DB
+2022-03-24 22:40:53,664{GMT}	INFO	[jepsen node 127.0.0.1] jepsen.neo4j: 127.0.0.1 tearing down neo4j
+2022-03-24 22:40:53,665{GMT}	INFO	[jepsen node 127.0.0.1] jepsen.control.util: Stopping /opt/neo4j/bin/neo4j
+2022-03-24 22:40:56,979{GMT}	INFO	[jepsen test runner] jepsen.db: Setting up DB
+2022-03-24 22:40:56,980{GMT}	INFO	[jepsen node 127.0.0.1] jepsen.neo4j: 127.0.0.1 installing neo4j 3.5.4
+2022-03-24 22:41:04,412{GMT}	INFO	[jepsen test runner] jepsen.core: Relative time begins now
+2022-03-24 22:41:04,637{GMT}	INFO	[jepsen worker 0] jepsen.util: 0	:invoke	:write	"n0"
+2022-03-24 22:41:04,672{GMT}	WARN	[jepsen worker 0] jepsen.generator.interpreter: Process 0 crashed
+clojure.lang.ArityException: Wrong number of args (3) passed to: neo4clj.client/create-node!
+	at clojure.lang.AFn.throwArity(AFn.java:429)
+	at clojure.lang.AFn.invoke(AFn.java:40)
+	at jepsen.neo4j.Client.invoke_BANG_(neo4j.clj:82)
+	at jepsen.client.Validate.invoke_BANG_(client.clj:83)
+	at jepsen.generator.interpreter.ClientWorker.invoke_BANG_(interpreter.clj:62)
+	at jepsen.generator.interpreter$spawn_worker$fn__9422$fn__9423.invoke(interpreter.clj:137)
+	at jepsen.generator.interpreter$spawn_worker$fn__9422.invoke(interpreter.clj:120)
+	at clojure.core$binding_conveyor_fn$fn__5739.invoke(core.clj:2030)
+	at clojure.lang.AFn.call(AFn.java:18)
+	at java.base/java.util.concurrent.FutureTask.run(FutureTask.java:264)
+	at java.base/java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1128)
+	at java.base/java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:628)
+	at java.base/java.lang.Thread.run(Thread.java:829)
+2022-03-24 22:41:04,682{GMT}	INFO	[jepsen worker 0] jepsen.util: 1	:invoke	:write	"n1"
+2022-03-24 22:41:04,686{GMT}	WARN	[jepsen worker 0] jepsen.generator.interpreter: Process 1 crashed
+clojure.lang.ArityException: Wrong number of args (3) passed to: neo4clj.client/create-node!
+	at clojure.lang.AFn.throwArity(AFn.java:429)
+	at clojure.lang.AFn.invoke(AFn.java:40)
+	at jepsen.neo4j.Client.invoke_BANG_(neo4j.clj:82)
+	at jepsen.client.Validate.invoke_BANG_(client.clj:83)
+	at jepsen.generator.interpreter.ClientWorker.invoke_BANG_(interpreter.clj:62)
+	at jepsen.generator.interpreter$spawn_worker$fn__9422$fn__9423.invoke(interpreter.clj:137)
+	at jepsen.generator.interpreter$spawn_worker$fn__9422.invoke(interpreter.clj:120)
+	at clojure.core$binding_conveyor_fn$fn__5739.invoke(core.clj:2030)
+	at clojure.lang.AFn.call(AFn.java:18)
+	at java.base/java.util.concurrent.FutureTask.run(FutureTask.java:264)
+	at java.base/java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1128)
+	at java.base/java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:628)
+	at java.base/java.lang.Thread.run(Thread.java:829)
+2022-03-24 22:41:05,407{GMT}	INFO	[jepsen worker 0] jepsen.util: 2	:invoke	:read	nil
+2022-03-24 22:41:05,806{GMT}	INFO	[jepsen worker 0] jepsen.util: 2	:ok	:read	nil
+2022-03-24 22:41:05,809{GMT}	INFO	[jepsen test runner] jepsen.core: Run complete, writing
+2022-03-24 22:41:05,831{GMT}	INFO	[jepsen test runner] jepsen.core: Analyzing...
+2022-03-24 22:41:05,832{GMT}	INFO	[jepsen test runner] jepsen.core: Analysis complete
+2022-03-24 22:41:05,834{GMT}	INFO	[jepsen results] jepsen.store: Wrote /home/d1m0000n/diploma_neo4j/jepsen.neo4j/store/neo4j/20220324T224052.000+0300/results.edn
+2022-03-24 22:41:05,837{GMT}	INFO	[jepsen test runner] jepsen.core: Snarfing log files
+2022-03-24 22:41:05,943{GMT}	INFO	[jepsen node 127.0.0.1] jepsen.core: downloading /opt/neo4j/logs/neo4j.log to neo4j.log
+2022-03-24 22:41:06,068{GMT}	INFO	[jepsen node 127.0.0.1] jepsen.core: downloading /opt/neo4j/logs/debug.log to debug.log
+2022-03-24 22:41:06,087{GMT}	INFO	[jepsen test runner] jepsen.core: Snarfing log files
+2022-03-24 22:41:06,190{GMT}	INFO	[jepsen node 127.0.0.1] jepsen.core: downloading /opt/neo4j/logs/neo4j.log to neo4j.log
+2022-03-24 22:41:06,307{GMT}	INFO	[jepsen node 127.0.0.1] jepsen.core: downloading /opt/neo4j/logs/debug.log to debug.log
+2022-03-24 22:41:06,326{GMT}	INFO	[jepsen node 127.0.0.1] jepsen.neo4j: 127.0.0.1 tearing down neo4j
+2022-03-24 22:41:06,326{GMT}	INFO	[jepsen node 127.0.0.1] jepsen.control.util: Stopping /opt/neo4j/bin/neo4j
+2022-03-24 22:41:10,648{GMT}	INFO	[jepsen test runner] jepsen.core: {:valid? true}
+
+
+Everything looks good! ヽ(‘ー`)ノ

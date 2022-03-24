@@ -1,0 +1,72 @@
+2022-03-24 20:00:31,350{GMT}	INFO	[jepsen test runner] jepsen.core: Command line:
+lein run test --node 127.0.0.1 --password Dem0nnet33dem0nN
+2022-03-24 20:00:31,385{GMT}	INFO	[jepsen test runner] jepsen.core: Running test:
+{:remote #jepsen.control.SSHRemote{:session nil}
+ :concurrency 1
+ :db
+ #object[jepsen.neo4j$db$reify__5099
+         "0xf1e5f85"
+         "jepsen.neo4j$db$reify__5099@f1e5f85"]
+ :leave-db-running? false
+ :name "neo4j"
+ :logging-json? false
+ :start-time
+ #object[org.joda.time.DateTime "0x47c06b1a" "2022-03-24T20:00:31.000+03:00"]
+ :net
+ #object[jepsen.net$reify__9085 "0x61799152" "jepsen.net$reify__9085@61799152"]
+ :client
+ #object[jepsen.client$reify__8924
+         "0x5c39da9e"
+         "jepsen.client$reify__8924@5c39da9e"]
+ :barrier
+ #object[java.util.concurrent.CyclicBarrier
+         "0xe38b953"
+         "java.util.concurrent.CyclicBarrier@e38b953"]
+ :pure-generators true
+ :ssh
+ {:dummy? false,
+  :username "root",
+  :password "Dem0nnet33dem0nN",
+  :strict-host-key-checking false,
+  :private-key-path nil}
+ :checker
+ #object[jepsen.checker$unbridled_optimism$reify__8609
+         "0x4a648b35"
+         "jepsen.checker$unbridled_optimism$reify__8609@4a648b35"]
+ :argv ("test" "--node" "127.0.0.1" "--password" "Dem0nnet33dem0nN")
+ :nemesis
+ #object[jepsen.nemesis$reify__9186
+         "0x673a702a"
+         "jepsen.nemesis$reify__9186@673a702a"]
+ :active-histories
+ #object[clojure.lang.Atom "0x64a0ee65" {:status :ready, :val #{}}]
+ :nodes ["127.0.0.1"]
+ :test-count 1
+ :generator nil
+ :os
+ #object[jepsen.os.ubuntu.Ubuntu
+         "0x293dd4b3"
+         "jepsen.os.ubuntu.Ubuntu@293dd4b3"]
+ :time-limit 60}
+
+2022-03-24 20:00:31,717{GMT}	INFO	[jepsen node 127.0.0.1] jepsen.os.ubuntu: 127.0.0.1 setting up ubuntu
+2022-03-24 20:00:32,789{GMT}	INFO	[jepsen test runner] jepsen.db: Tearing down DB
+2022-03-24 20:00:32,791{GMT}	INFO	[jepsen node 127.0.0.1] jepsen.neo4j: 127.0.0.1 tearing down neo4j
+2022-03-24 20:00:42,999{GMT}	INFO	[jepsen test runner] jepsen.db: Setting up DB
+2022-03-24 20:00:43,001{GMT}	INFO	[jepsen node 127.0.0.1] jepsen.neo4j: 127.0.0.1 installing neo4j 3.5.4
+2022-03-24 20:00:55,338{GMT}	INFO	[jepsen test runner] jepsen.core: Relative time begins now
+2022-03-24 20:00:55,366{GMT}	INFO	[jepsen test runner] jepsen.core: Run complete, writing
+2022-03-24 20:00:55,388{GMT}	INFO	[jepsen test runner] jepsen.core: Analyzing...
+2022-03-24 20:00:55,389{GMT}	INFO	[jepsen test runner] jepsen.core: Analysis complete
+2022-03-24 20:00:55,392{GMT}	INFO	[jepsen results] jepsen.store: Wrote /home/d1m0000n/diploma_neo4j/jepsen.neo4j/store/neo4j/20220324T200031.000+0300/results.edn
+2022-03-24 20:00:55,395{GMT}	INFO	[jepsen test runner] jepsen.core: Snarfing log files
+2022-03-24 20:00:55,502{GMT}	INFO	[jepsen node 127.0.0.1] jepsen.core: downloading /opt/neo4j/logs/neo4j.log to neo4j.log
+2022-03-24 20:00:55,631{GMT}	INFO	[jepsen node 127.0.0.1] jepsen.core: downloading /opt/neo4j/logs/debug.log to debug.log
+2022-03-24 20:00:55,651{GMT}	INFO	[jepsen test runner] jepsen.core: Snarfing log files
+2022-03-24 20:00:55,754{GMT}	INFO	[jepsen node 127.0.0.1] jepsen.core: downloading /opt/neo4j/logs/neo4j.log to neo4j.log
+2022-03-24 20:00:55,871{GMT}	INFO	[jepsen node 127.0.0.1] jepsen.core: downloading /opt/neo4j/logs/debug.log to debug.log
+2022-03-24 20:00:55,884{GMT}	INFO	[jepsen node 127.0.0.1] jepsen.neo4j: 127.0.0.1 tearing down neo4j
+2022-03-24 20:01:07,106{GMT}	INFO	[jepsen test runner] jepsen.core: {:valid? true}
+
+
+Everything looks good! ヽ(‘ー`)ノ
