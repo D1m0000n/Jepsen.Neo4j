@@ -5,65 +5,19 @@
             [jepsen [cli :as cli]
              [client :as client]
              [control :as c]
-             [db :as db]
              [generator :as gen]
              [tests :as tests]]
             [jepsen.control.util :as cu]
-            [jepsen.os.ubuntu :as ubuntu])
+            [jepsen.os.ubuntu :as ubuntu]
+            [jepsen.neo4j [db :as db]
+             [append :as append]
+             [nemesis :as nemesis]]
+            )
   (:import (java.net URI)))
 
 (defn r   [_ _] {:type :invoke, :f :read, :value nil})
 (defn w   [_ _] {:type :invoke, :f :write, :value  (rand-int 5)})
 (defn cas [_ _] {:type :invoke, :f :cas, :value [(rand-int 5) (rand-int 5)]})
-
-(def dir "/opt/neo4j")
-;; (def binary "./bin/neo4j")
-(def binary "/opt/neo4j/bin/neo4j")
-(def admin "/opt/neo4j/bin/neo4j-admin")
-(def helper "/home/d1m0000n/helpers_neo4j/auth.sh")
-;; (def logfile (str dir "/neo4j.log"))
-(def logfile "/opt/neo4j/logs/neo4j.log")
-(def debugfile "/opt/neo4j/logs/debug.log")
-(def pidfile (str dir "/neo4j.pid"))
-
-(defn db
-  "Neo4j DB for a particular version."
-  [version]
-  (reify db/DB
-    (setup! [_ test node]
-      (info node "installing neo4j" version)
-      (c/su (c/exec :rm :-rf dir))
-      
-      (c/su
-       (let [url (str "http://dist.neo4j.org/neo4j-community-" version
-                      "-unix.tar.gz")]
-         (cu/install-archive! url dir))
-
-      ;;  (cu/start-daemon!
-      ;;     {:logfile logfile
-      ;;      :pidfile pidfile
-      ;;      :chdir   dir}
-      ;;     binary :start)
-       (c/exec helper)
-       (c/exec binary :start)
-
-       (Thread/sleep 5000)
-      ;;  (c/exec admin :set-default-admin)
-      ;;  (c/exec binary :status)
-       ))
-    
-
-    (teardown! [_ test node]
-      (info node "tearing down neo4j")
-      (cu/stop-daemon! binary pidfile)
-      (c/exec binary :stop)
-        (Thread/sleep 3000)
-      ;; (c/su (c/exec :rm :-rf dir))
-               )
-    
-    db/LogFiles
-    (log-files [_ test node]
-      [logfile debugfile])))
 
 (defrecord Client [conn]
   client/Client
@@ -97,13 +51,12 @@
          opts
          {:name "neo4j"
           :os   ubuntu/os
-          :db   (db "3.5.4")
+          :db   (db/db "3.5.4")
           :pure-generators true
           :client (Client. nil)
           :generator       (->> (gen/mix [r w])
                                 (gen/stagger 1)
                                 (gen/nemesis nil)
-                                ;; (gen/time-limit 5))
                                 (gen/time-limit 15))
           }))
 
