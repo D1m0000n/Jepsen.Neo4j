@@ -6,5 +6,8 @@
   :dependencies [[org.clojure/clojure "1.10.0"]
                  [jepsen "0.2.1-SNAPSHOT"]
                  [verschlimmbesserung "0.1.3"]
-                 [fullspectrum/neo4clj "1.0.0-ALPHA7"]])
+                 [fullspectrum/neo4clj "1.0.0-ALPHA7"]]
+  :java-source-paths ["src/java/"]
+  :source-paths      ["src/clojure"]
+  :repl-options {:init-ns jepsen.neo4j})
   ;; :repl-options {:init-ns jepsen.neo4j})
