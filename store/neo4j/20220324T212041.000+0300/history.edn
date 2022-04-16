@@ -1,4 +1,0 @@
-{:type :invoke, :f :read, :value nil, :time 181152796, :process 0, :index 0}
-{:type :ok, :f :read, :value nil, :time 594197915, :process 0, :index 1}
-{:type :invoke, :f :read, :value nil, :time 1754546514, :process 0, :index 2}
-{:type :ok, :f :read, :value nil, :time 1763488417, :process 0, :index 3}

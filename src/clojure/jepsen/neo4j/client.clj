@@ -1,16 +1,15 @@
 (ns jepsen.neo4j.client
-  (:require [neo4clj.client :as nc]))
+  (:require [clojure.tools.logging :refer :all]
+            [clojure.reflect :as r]
+            )
+  ;; (:use [clojure.pprint :only [print-table]])
+  (:import (org.neo4j.driver Driver
+                             GraphDatabase)))
 
-(defn create-node-with-id
-  "Create node with id"
-  [conn id]
-  (nc/create-node! conn {:ref-id "p"
-                         :id id})
-)
-
-(defn find-node-by-id
-  "Find node with exact id"
-  [conn id]
-  (nc/find-node conn {:ref-id "p"
-                      :id id})
-)
+(defn ^Driver build-driver
+  [^String host]
+  ;; (info (print-table
+  ;;        (sort-by :name
+  ;;                 (filter :exception-types (:members (r/reflect GraphDatabase))))))
+  (. GraphDatabase (driver host))
+  )

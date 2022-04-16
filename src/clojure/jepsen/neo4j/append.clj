@@ -3,11 +3,12 @@
             [jepsen [client :as client]
              [util :as util :refer [timeout]]
              [independent :as independent]]
-            [neo4clj.client :as neo]
+            ;; [neo4clj.client :as neo]
+            [jepsen.neo4j [client :as nc]]
             [jepsen.tests.cycle.append :as list-append]
             [slingshot.slingshot :refer [try+]])
   (:import (java.util ArrayList List)
-           (mipt.bit.utils Operation)
+           (mipt.bit.utils Operation TransactionsExecute)
            (org.json JSONObject)))
 
 (defn update-operations!
@@ -28,8 +29,9 @@
   (info :in-processing-results (.toString result))
   (let [operation (.get result "type")
         f         (get operations operation)
-        k         (Long/valueOf (.get result "key"))
-        values    (if (.has result  "labels") (.get result "labels") [])
+        ;; k         (Long/valueOf (.get result "key"))
+        k        (.get result "key")
+        values    (if (.has result  "readResult") (.get result "readResult") [])
         v         (.get result "value")]
   (case operation
     "r"       [f k (vec values)]
@@ -39,10 +41,13 @@
 (defrecord Client [conn]
   client/Client
   (open! [this test node]
-    (assoc this :conn (neo/connect "bolt://localhost:7687" {:log {:level :info}
-                                                            :encryption :none})))
+    ;; (assoc this :conn (neo/connect "bolt://localhost:7687" {:log {:level :info}
+    ;;                                                         :encryption :none}))
+    (assoc this :conn (nc/build-driver "bolt://localhost:7687"))
+         )
 
-  (setup! [this test])
+  (setup! [this test]
+          (.wipeData (TransactionsExecute. conn)))
 
   (invoke! [this test op]
     (try+
@@ -57,7 +62,7 @@
      (timeout 10000 (assoc op :type :info, :error :timeout)
               (let [txn' (let [operations   (ArrayList.)]
                            (mapv (partial update-operations! operations) (:value op))
-                           (let [^List results (.execute (TransactionsExecute. container) operations)]
+                           (let [^List results (.execute (TransactionsExecute. conn) operations)]
                              (if (not= (.size results) (count (:value op)))
                                (assoc op :type :fail, :value :transaction-fail)
                                (mapv (partial processing-results!) results))))]

@@ -1,0 +1,10 @@
+G-single-realtime #0
+Let:
+  T1 = {:type :ok, :f :txn, :value [[:r 22 []] [:append 20 255] [:append 6 254] [:append 20 256]], :time 60035681790, :process 0, :index 6641}
+  T2 = {:type :ok, :f :txn, :value [[:append 20 253] [:append 22 1]], :time 59940919045, :process 0, :index 6637}
+  T3 = {:type :ok, :f :txn, :value [[:append 20 254] [:r 20 []]], :time 59968722142, :process 0, :index 6639}
+
+Then:
+  - T1 < T2, because T1 observed the initial (nil) state of 22, which T2 created by appending 1.
+  - T2 < T3, because T2 completed at index 6637, 0.000 seconds before the invocation of T3, at index 6638.
+  - However, T3 < T1, because T3 completed at index 6639, 0.000 seconds before the invocation of T1, at index 6640: a contradiction!

@@ -1,8 +1,0 @@
-0	:invoke	:read	nil
-0	:info	:read	nil	indeterminate: Unsupported authentication token, scheme 'none' is only allowed when auth is disabled.
-1	:invoke	:read	nil
-1	:info	:read	nil	indeterminate: Unsupported authentication token, scheme 'none' is only allowed when auth is disabled.
-2	:invoke	:read	nil
-2	:info	:read	nil	indeterminate: Unsupported authentication token, scheme 'none' is only allowed when auth is disabled.
-3	:invoke	:read	nil
-3	:info	:read	nil	indeterminate: Unsupported authentication token, scheme 'none' is only allowed when auth is disabled.

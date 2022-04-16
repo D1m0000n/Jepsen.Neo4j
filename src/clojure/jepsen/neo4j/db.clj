@@ -19,7 +19,7 @@
   (reify db/DB
     (setup! [_ test node]
       (info node "installing neo4j" version)
-      ;; (c/su (c/exec :rm :-rf dir))
+      (c/su (c/exec :rm :-rf dir))
       
       (c/su
        (let [url (str "http://dist.neo4j.org/neo4j-community-" version

@@ -6,7 +6,10 @@
   :dependencies [[org.clojure/clojure "1.10.0"]
                  [jepsen "0.2.1-SNAPSHOT"]
                  [verschlimmbesserung "0.1.3"]
+                 [org.json/json "20210307"]
+                 [org.neo4j.driver/neo4j-java-driver "4.0.1"]
                  [fullspectrum/neo4clj "1.0.0-ALPHA7"]]
+  :jvm-opts ["-Djava.awt.headless=true"]
   :java-source-paths ["src/java/"]
   :source-paths      ["src/clojure"]
   :repl-options {:init-ns jepsen.neo4j})
